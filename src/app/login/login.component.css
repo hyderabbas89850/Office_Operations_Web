@@ -2,7 +2,6 @@ label {
   display: block;
   margin-top: 10px;
 }
-
 .card-container.card {
   max-width: 400px !important;
   padding: 40px 40px;
