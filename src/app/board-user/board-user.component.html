@@ -1,5 +1,22 @@
 <div class="container">
   <header class="jumbotron">
-    <p>{{ content }}</p>
+    <div class="table-responsive">
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">User Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Roles</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let user of userList">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{getRoleFrmUsrRecord(user.roles).roleDesc}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </header>
 </div>

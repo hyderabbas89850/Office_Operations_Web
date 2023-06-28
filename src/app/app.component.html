@@ -7,6 +7,9 @@
       <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link text-white font-weight-bold" routerLink="admin">Admin Board</a>
       </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/register" class="nav-link text-white font-weight-bold" routerLink="register">Register User</a>
+      </li>
       <li class="nav-item" *ngIf="showModeratorBoard">
         <a href="/mod" class="nav-link text-white font-weight-bold" routerLink="mod">Moderator Board</a>
       </li>
@@ -16,9 +19,6 @@
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link text-white font-weight-bold" routerLink="register">Sign Up</a>
-      </li>
       <li class="nav-item">
         <a href="/login" class="nav-link text-white font-weight-bold" routerLink="login">Login</a>
       </li>

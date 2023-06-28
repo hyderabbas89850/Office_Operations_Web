@@ -14,6 +14,8 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showSuperAdminBoard: boolean = false;
+  showOrgAdminBoard: boolean = false;
   username?: string;
 
   eventBusSub?: Subscription;
@@ -30,8 +32,9 @@ export class AppComponent {
     if (this.isLoggedIn) {
       const user = this.storageService.getUser();
       this.roles = user.roles;
-
+      this.showOrgAdminBoard = this.roles.includes('ROLE_ORGADMIN');
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showSuperAdminBoard = this.roles.includes('ROLE_SUPERADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.username = user.username;
