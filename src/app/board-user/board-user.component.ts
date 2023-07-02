@@ -14,25 +14,22 @@ export class BoardUserComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserBoard().subscribe({
       next: data => {
-        console.log(data)
         this.userList = JSON.parse(data);
+       // console.log(data)
       },
       error: err => {
-        if (err.error) {
-          try {
-            const res = JSON.parse(err.error);
-            this.userList = res.message;
-          } catch {
-            this.userList = `Error with status: ${err.status} - ${err.statusText}`;
-          }
-        } else {
-          this.userList = `Error with status: ${err.status}`;
-        }
+            this.userList = null;
       }
     });
   }
 
-  getRoleFrmUsrRecord(usrRecord:string){
-    return JSON.parse(usrRecord);
+  getRoleFrmUsrRecord(roleArray:any){
+    //console.log(roleArray)
+    roleArray = JSON.parse(roleArray);
+    var roleDesc = "";
+    for (var role of roleArray) {
+      roleDesc = roleDesc + role.roleDesc;
+    }
+    return roleDesc;
   }
 }

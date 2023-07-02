@@ -4,16 +4,25 @@
       <table class="table">
       <thead>
         <tr>
-          <th scope="col">User Name</th>
+          <th scope="col">User Name </th>
           <th scope="col">Email</th>
           <th scope="col">Roles</th>
+          <th scope="col">Org</th>
+          <th scope="col">Logo</th>
         </tr>
         </thead>
         <tbody>
+          <tr *ngIf="userList == null">
+            <td>No Data Found</td>
+          </tr>
           <tr  *ngFor="let user of userList">
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
-            <td>{{getRoleFrmUsrRecord(user.roles).roleDesc}}</td>
+            <td>{{getRoleFrmUsrRecord(user.roles)}}</td>
+            <td>{{user.orgName}}</td>
+            <td>
+              <img  [src]="user.logoPath" />
+            </td>
           </tr>
         </tbody>
       </table>
